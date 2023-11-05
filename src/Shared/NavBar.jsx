@@ -5,11 +5,17 @@ const NavBar = () => {
   const menus = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
 
       <li>
-        <NavLink>Available Foods</NavLink>
+        <NavLink to="availableFoods">Available Foods</NavLink>
+      </li>
+      <li>
+        <NavLink to="addFoods">Add Foods</NavLink>
+      </li>
+      <li>
+        <NavLink to="signUp">Sign Up</NavLink>
       </li>
     </>
   );
@@ -22,7 +28,7 @@ const NavBar = () => {
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -49,11 +55,13 @@ const NavBar = () => {
             </p>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{menus}</ul>
+        <div className="navbar-center hidden lg:flex text-white">
+          <ul className="menu menu-horizontal px-1 text-base">{menus}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-red-600 border-none text-white">Login</a>
+          <Link to="login" className="btn bg-red-600 border-none text-white">
+            Login
+          </Link>
         </div>
       </div>
     </div>
