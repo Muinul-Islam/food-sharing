@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../../Firebase/firebase.config";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -9,12 +15,28 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const info = {
-      email,
-      password,
-    };
-    console.log(info);
+    signIn(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
     // form.reset();
+  };
+
+  const handleGoogleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
   return (
     <div>
@@ -67,7 +89,10 @@ const Login = () => {
               </div>
             </form>
             <div className="flex justify-center pb-4">
-              <button className="btn btn-primary  text-white w-3/4">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn btn-primary  text-white w-3/4"
+              >
                 Login With
                 <FcGoogle className="text-3xl"></FcGoogle>
               </button>
