@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const FeaturedFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -26,9 +27,15 @@ const FeaturedFoods = () => {
               <div className="card-body">
                 <h2 className="card-title">{food.name}</h2>
                 <p>{food.notes}</p>
-                <div className="card-actions justify-between">
-                  <div className="w-32 rounded-full">{food.donatorImg}</div>
-                  <div className="badge badge-outline p-3">{food.donator}</div>
+                <div className="card-actions justify-between items-center">
+                  <div className="text-xl ">{food.donator}</div>
+                  <div className="w-20">
+                    <img
+                      className="rounded-full"
+                      src={food.donatorImg}
+                      alt=""
+                    />
+                  </div>
                 </div>
                 <div className="flex justify-between">
                   <div className="flex justify-center items-center gap-2">
@@ -45,9 +52,19 @@ const FeaturedFoods = () => {
                   <p>{food.location}</p>
                 </div>
               </div>
+              <Link to={`/foods/${food._id}`} className="p-4">
+                <button className="bg-green-600 py-2 rounded-xl text-white w-full ">
+                  View Details
+                </button>
+              </Link>
             </div>
           </div>
         ))}
+      </div>
+      <div className="text-center mb-10">
+        <button className="btn bg-green-600 text-white hover:text-black">
+          See All Foods
+        </button>
       </div>
     </div>
   );

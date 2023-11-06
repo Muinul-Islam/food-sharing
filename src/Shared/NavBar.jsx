@@ -18,6 +18,12 @@ const NavBar = () => {
         <NavLink to="addFoods">Add Foods</NavLink>
       </li>
       <li>
+        <NavLink to="signUp">Manage My Foods</NavLink>
+      </li>
+      <li>
+        <NavLink to="signUp">My Food Request</NavLink>
+      </li>
+      <li>
         <NavLink to="signUp">Sign Up</NavLink>
       </li>
     </>
@@ -59,7 +65,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex text-white">
-          <ul className="menu menu-horizontal px-1 text-base">{menus}</ul>
+          <ul className="menu menu-horizontal px-1">{menus}</ul>
         </div>
 
         <div className="navbar-end">
