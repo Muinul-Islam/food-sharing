@@ -11,13 +11,14 @@ const AddFoods = () => {
     const date = form.date.value;
     const notes = form.notes.value;
     const status = form.status.value;
+    const hour = parseInt(date);
 
     const data = {
       name,
       img,
       quantity,
       location,
-      date,
+      hour,
       notes,
       status,
     };

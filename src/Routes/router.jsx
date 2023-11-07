@@ -6,11 +6,13 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Food from "../Pages/Food/Food";
 import AddFoods from "../Pages/Home/AddFoods";
 import AvailableFoods from "../Pages/Home/AvailableFoods";
+import Error from "../Pages/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",

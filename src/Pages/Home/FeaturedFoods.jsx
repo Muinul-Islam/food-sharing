@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const FeaturedFoods = () => {
   const [foods, setFoods] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/foods")
@@ -14,11 +15,13 @@ const FeaturedFoods = () => {
   }, []);
   console.log(foods);
 
+  const displayedFoods = showAll ? foods : foods.slice(0, 6);
+
   return (
     <div>
       <h1 className="text-center my-10 text-3xl font-bold">Featured Foods</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-8 my-8">
-        {foods.map((food) => (
+        {displayedFoods.map((food) => (
           <div key={food._id}>
             <div className="card bg-base-100 shadow-xl">
               <figure>
@@ -62,8 +65,11 @@ const FeaturedFoods = () => {
         ))}
       </div>
       <div className="text-center mb-10">
-        <button className="btn bg-green-600 text-white hover:text-black">
-          See All Foods
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="btn bg-green-600 text-white hover:text-black"
+        >
+          {showAll ? "Show Less Foods" : "See All Foods"}
         </button>
       </div>
     </div>

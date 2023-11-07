@@ -64,11 +64,6 @@ const AvailableFoods = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mb-10">
-          <button className="btn bg-green-600 text-white hover:text-black">
-            See All Foods
-          </button>
-        </div>
       </div>
     </div>
   );

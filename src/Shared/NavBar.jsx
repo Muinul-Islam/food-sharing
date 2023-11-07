@@ -18,10 +18,10 @@ const NavBar = () => {
         <NavLink to="addFoods">Add Foods</NavLink>
       </li>
       <li>
-        <NavLink to="signUp">Manage My Foods</NavLink>
+        <NavLink to="manageFoods">Manage My Foods</NavLink>
       </li>
       <li>
-        <NavLink to="signUp">My Food Request</NavLink>
+        <NavLink to="foodRequest">My Food Request</NavLink>
       </li>
       <li>
         <NavLink to="signUp">Sign Up</NavLink>
