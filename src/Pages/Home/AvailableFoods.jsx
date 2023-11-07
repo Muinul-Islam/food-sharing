@@ -17,7 +17,9 @@ const AvailableFoods = () => {
   return (
     <div>
       <div>
-        <h1 className="text-center my-10 text-3xl font-bold">Featured Foods</h1>
+        <h1 className="text-center my-10 text-3xl font-bold">
+          Available Foods
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-8 my-8">
           {foods.map((food) => (
             <div key={food._id}>

@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddFoods = () => {
   const handleAddFoods = (e) => {
     e.preventDefault();
@@ -20,6 +22,25 @@ const AddFoods = () => {
       status,
     };
     console.log(data);
+
+    fetch("http://localhost:5000/foods", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Good job!",
+            text: "Successfully Added The Food",
+            icon: "success",
+          });
+        }
+      });
   };
   return (
     <div>
@@ -98,14 +119,14 @@ const AddFoods = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black text-xl">
-                  Expired Date
+                  Expired In
                 </span>
               </label>
               <label className="input-group">
                 <input
-                  type="date"
+                  type="number"
                   name="date"
-                  placeholder="Expired Date"
+                  placeholder="Hours"
                   className="input input-bordered w-full text-black"
                 />
               </label>
