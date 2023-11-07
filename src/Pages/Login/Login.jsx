@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -19,11 +20,21 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
+        Swal.fire({
+          title: "Good job!",
+          text: "Successfully Logged In",
+          icon: "success",
+        });
       })
       .catch((error) => {
         console.log(error.message);
+        Swal.fire({
+          title: "Oops!",
+          text: "An error occurred: " + error.message,
+          icon: "error",
+        });
       });
-    // form.reset();
+    form.reset();
   };
 
   const handleGoogleSignIn = () => {
@@ -33,9 +44,20 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
+
+        Swal.fire({
+          title: "Good job!",
+          text: "Successfully Logged In",
+          icon: "success",
+        });
       })
       .catch((error) => {
         console.log(error.message);
+        Swal.fire({
+          title: "Oops!",
+          text: "An error occurred: " + error.message,
+          icon: "error",
+        });
       });
   };
   return (

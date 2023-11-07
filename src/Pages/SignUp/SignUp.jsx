@@ -25,7 +25,7 @@ const SignUp = () => {
       })
       .catch((error) => console.log(error.message));
 
-    // form.reset();
+    form.reset();
   };
   const handleGoogleSignUp = () => {
     const provider = new GoogleAuthProvider();
