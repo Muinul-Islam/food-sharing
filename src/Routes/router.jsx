@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Food></Food>,
         loader: ({ params }) =>
           fetch(
-            `https://community-food-sharing-server-eghp0s2dz-muinul-islams-projects.vercel.app/foods/${params.id}`
+            `https://community-food-sharing-server-seven.vercel.app/foods/${params.id}`
           ),
       },
       {
@@ -56,9 +56,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: () =>
-          fetch(
-            "https://community-food-sharing-server-eghp0s2dz-muinul-islams-projects.vercel.app/foods"
-          ),
+          fetch("https://community-food-sharing-server-seven.vercel.app/foods"),
       },
     ],
   },

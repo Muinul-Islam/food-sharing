@@ -24,16 +24,13 @@ const AddFoods = () => {
     };
     console.log(data);
 
-    fetch(
-      "https://community-food-sharing-server-eghp0s2dz-muinul-islams-projects.vercel.app/foods",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+    fetch("https://community-food-sharing-server-seven.vercel.app/foods", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -8,9 +8,7 @@ const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://community-food-sharing-server-eghp0s2dz-muinul-islams-projects.vercel.app/foods"
-    )
+    fetch("https://community-food-sharing-server-seven.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
