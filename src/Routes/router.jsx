@@ -32,7 +32,9 @@ const router = createBrowserRouter([
         path: "foods/:id",
         element: <Food></Food>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/foods/${params.id}`),
+          fetch(
+            `https://community-food-sharing-server-eghp0s2dz-muinul-islams-projects.vercel.app/foods/${params.id}`
+          ),
       },
       {
         path: "availableFoods",
@@ -53,7 +55,10 @@ const router = createBrowserRouter([
             <ManageFoods></ManageFoods>
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:5000/food"),
+        loader: () =>
+          fetch(
+            "https://community-food-sharing-server-eghp0s2dz-muinul-islams-projects.vercel.app/foods"
+          ),
       },
     ],
   },

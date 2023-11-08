@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import FeaturedFoods from "./FeaturedFoods";
+import Question from "./Question";
 import Slider from "./Slider";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <FeaturedFoods></FeaturedFoods>
       <Slider></Slider>
+      <Question></Question>
     </div>
   );
 };

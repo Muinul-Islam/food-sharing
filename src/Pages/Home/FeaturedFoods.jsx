@@ -9,7 +9,9 @@ const FeaturedFoods = () => {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/foods")
+    fetch(
+      "https://community-food-sharing-server-eghp0s2dz-muinul-islams-projects.vercel.app/foods"
+    )
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
